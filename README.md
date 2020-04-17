@@ -11,7 +11,7 @@ I wasn't able to get the code to fully work as I envisioned, therefore, have cre
 ## Opening the Project
 
 To view the project ↓  
-Final Project > Pua Beach Website > index.html (open with Google Chrome)
+Coding2-FinalProject > Pua Beach Website > index.html (open with Google Chrome)
 
 To view the demo video ↓  
 [Prototype Video](https://youtu.be/4CYhXMyAsOU)  
