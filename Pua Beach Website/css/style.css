@@ -1,0 +1,146 @@
+/* color: var(--darkGray, black); */
+
+/* FONTS */
+
+@font-face {
+    font-family: 'bogleregular';
+    src: url('bogle-regular-webfont.woff2') format('woff2'),
+         url('bogle-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'boglebold';
+    src: url('bogle-bold-webfont.woff2') format('woff2'),
+         url('bogle-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'apercumono';
+    src: url('apercumono-webfont.woff2') format('woff2'),
+         url('apercumono-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media only screen and (max-width: 1300px) {
+    
+    #changeDevice {
+        position:absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        background-color: var(--skyBlue, aqua);
+    }
+    
+    #hop {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+
+}
+
+@media only screen and (min-width: 1300px) {
+    
+    #hop {
+        display: none;
+    }
+    
+}
+
+html {
+    --darkGreen: #184614;
+    --oceanBlue: #3994B0;
+    --skyBlue: #55B9CA;
+    --sandyBeige: #FCDEA8;
+    --rosePink: #F3B098;
+}
+
+body {
+    overflow: scroll;
+}
+
+#leftCol {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(25% - 3em);
+    height: calc(100% - 3em);
+    background-color: var(--sandyBeige, beige);
+    padding: 1.5em;
+}
+
+#description {
+    display: block;   
+}
+
+h1 {
+    font-family: "boglebold";
+    font-size: 1.4em;
+    line-height: 1.7em;
+    letter-spacing: 0.3em;
+	color: var(--darkGreen, darkslategrey);
+    display: inline;
+    padding: 0;
+}
+
+h2 {
+    font-family: "bogleregular";
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+	color: var(--darkGreen, darkslategrey);
+} /* description */
+
+h3 {
+    font-family: "boglebold";
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+	color: var(--darkGreen, darkslategrey);
+    display: inline-block;
+    cursor: pointer;
+} /* button */
+
+h3:hover {
+    color: var(--rosePink, pink);
+}
+
+#backButton {
+    display: none;
+    position: absolute;
+    bottom: 0.5em;
+}
+
+#camCanvas {
+    margin-top: 0.5em;
+    display: none;
+    background-color: var(--rosePink, pink);
+}
+
+#label {
+    font-family: "boglebold";
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+	color: var(--darkGreen, darkslategrey);
+    margin-top: 1em;
+}
+
+#oceanCanvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#flowerCanvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

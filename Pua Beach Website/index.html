@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script> 
+<script src = "https://mimicproject.com/libs/maximilian.js"></script>
+<title>Pua Beach</title>
+</head>
+
+<body>
+    
+<div id = "changeDevice">
+    <h1 id="hop">Hop onto a device with a larger screen for a better experience :)</h1>
+</div>
+              
+<div id="leftCol"> 
+    
+    <h1>PUA BEACH</h1>
+    
+    <div id ="description">
+        <h2>Every single Hawaiian dance teacher that I have met in the past 12 years of my dancing career has told me that in order to become a true performer, it is incredibly important to envision the scenary written in the lyrics, place yourself in that environment and to tell that story through your finger tips. However it is way easier said than done!
+        <br><br>
+        <i>Pua Beach</i> is a platform that helps Hawaiian dancers to immerse themselves in the story by live painting the scenary right in front of you.
+        <br><br>
+        If you dance in front of your webcam, the trained model will detect different hand and arm motions and will output the corresponding visuals on your screen.
+        <br><br>
+        This platform is still at its prototype stage, so it lacks accuracy and can only detect a singular hand gesture: the pua (or flower in English). Pua was chosen specifically as the starting point for its versatility and common usage in Hawaiian songs and dance choreographies.
+        </h2>
+    </div> <!--description-->
+    
+    <canvas id="camCanvas">
+        
+    </canvas> <!--camCanvas-->
+
+    <h3 id="startButton" onclick="init()" style="display:black;">START DANCING!</h3>
+    
+    <h3 id="backButton" onclick="window.location.reload();">BACK</h3>
+
+    <div id="label"></div>
+
+</div><!--leftCol-->
+    
+<canvas id = "oceanCanvas"></canvas>
+    
+<canvas id = "flowerCanvas"></canvas>
+    
+<script src="script.js"></script>
+
+</body>
+
+</html>

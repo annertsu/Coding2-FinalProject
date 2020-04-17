@@ -1,0 +1,85 @@
+var waves;
+
+function loadOcean() {
+    waves = new Waves(oceanCanvas, oceanCanvasWidth, oceanCanvasHeight);
+    setInterval( "run()", 50); //number = speed, lower = slower
+}
+       
+function run(){
+   waves.update( );
+   waves.draw( );
+}
+       
+window.addEventListener('load', loadOcean, false);
+
+function Wave(oceanCanvas, $x, $colour){
+    
+    this.force = 0;
+    this.wavePower = 30;
+    this.count = $x;
+    this.x = $x + Waves.globalX;
+    this.alpha = 0.1;
+   
+    this.update = function(){
+        this.x = $x + Waves.globalX - 100;
+        this.force = Math.sin(this.count);
+        this.count += 0.05;
+    }
+   
+    this.draw = function(){
+        oceanContext.fillStyle = "rgba(234, 189, 125, 0.1)";
+        oceanContext.fillRect(0, 0, oceanCanvasWidth, oceanCanvasHeight);
+        oceanContext.fillStyle = "rgba("+$colour+", "+this.alpha+")";
+        oceanContext.beginPath();
+        oceanContext.moveTo(0, this.x);
+        oceanContext.quadraticCurveTo(Waves.width/4, this.x + (this.wavePower * this.force), Waves.width / 2, this.x);
+        oceanContext.quadraticCurveTo(Waves.width * 0.75, this.x - (this.wavePower * this.force), Waves.width, this.x);
+        oceanContext.lineTo(Waves.width, Waves.height);
+        oceanContext.lineTo(0, Waves.height);
+        oceanContext.lineTo(0, this.x);
+        oceanContext.closePath();
+        oceanContext.fill();
+    }
+}
+
+function Waves($canvas, $width, $height){
+    this.numberOfWaves = 10;
+    this.waveGap = 20;
+    this.width = Waves.width = $width;
+    this.height = Waves.height = $height;
+    Waves.globalX = 0;
+    this.move = 0;
+   
+    this.colour = 57+", "+148+", "+176;
+    
+    this.wavesArray = new Array();
+   
+    this.beginingX = Waves.height / 2;
+    
+    while(this.numberOfWaves--){
+        this.wavesArray.push(new Wave($canvas, this.beginingX, this.colour));
+        this.beginingX += this.waveGap;
+    }
+   
+    this.update = function(){
+        var bL = this.wavesArray.length;
+        while( bL-- ){
+            this.wavesArray[ bL ].update( );
+        }
+        Waves.globalX += this.move;
+        if(Waves.globalX > (Waves.height / 2)-50){
+            this.move = -1;
+        }else if(Waves.globalX < -(Waves.height / 2)){
+            this.move = 1;
+        }
+    }
+   
+    this.draw = function(){
+        oceanContext.save();
+        var bL = this.wavesArray.length;
+        while( bL-- ){
+            this.wavesArray[ bL ].draw( );
+        }
+        oceanContext.restore();
+    }
+}
